@@ -1,14 +1,11 @@
 #include <iostream>
 #include "./inc/minheap.h"
 
-#define SWAP(a, b) { Element temp; temp = elements[a]; elements[a] = elements[b]; elements[b] = temp; }
-#define PARENT(a) a / 2
-
 using std::cout, std::endl;
 using MinHeap::PriorityQueue;
 
 void PriorityQueue::Insert(const char* name, double score) {
-    if (size == MAX_SIZE) {
+    if (size == max_size) {
         cout << "Out of range" << endl;
         return;
     }
@@ -23,26 +20,25 @@ void PriorityQueue::Insert(const char* name, double score) {
 }
 
 void PriorityQueue::Remove() {
-
     if (size < 1)
-        cout << "underflow";
+        cout << "underflow" << endl;
 
-    SWAP(1, size);
+    Swap(1, size);
+    elements[size].score = -1;
     size -= 1;
     MinHeapify();
-
 }
 
 void PriorityQueue::ChangeKey(int base, double score) {
     if (elements[base].score != -1 && elements[base].score < score) {
-        cout << "error";
+        cout << "error" << endl;
         return;
     }
     elements[base].score = score;
 
-    while (base > 1 && elements[PARENT(base)].score > elements[base].score) {
-        SWAP(PARENT(base), base)
-        base = PARENT(base);
+    while (base > 1 && elements[ParentOf(base)].score > elements[base].score) {
+        Swap(ParentOf(base), base);
+        base = ParentOf(base);
     }
 }
 
@@ -56,10 +52,10 @@ void PriorityQueue::PrintAll() {
 void PriorityQueue::MinHeapify(int base) {
     int left = base * 2;
     int right = left + 1;
+    int min;
     Element curr = elements[base];
     Element lchild = elements[left];
     Element rchild = elements[right];
-    int min;
 
     if (left <= size && lchild.score < curr.score)
         min = left;
@@ -69,7 +65,13 @@ void PriorityQueue::MinHeapify(int base) {
         min = right;
     
     if (min != base) {
-        SWAP(min, base);
+        Swap(min, base);
         MinHeapify(min);
     }
+}
+
+void PriorityQueue::Swap(int a, int b) {
+    Element temp = elements[a];
+    elements[a] = elements[b];
+    elements[b] = temp;
 }
