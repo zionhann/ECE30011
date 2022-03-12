@@ -10,12 +10,8 @@ void PriorityQueue::Insert(const char* name, double score) {
         return;
     }
     size += 1;
-
-    // Element* node = new Element(name, score);
     elements[size].name = name;
-    // elements[size].score = score;
     ChangeKey(size, score);
-
     cout << "New element " << "[" << name << ", " << score << "] " << "is inserted.\n" << endl;
 }
 
