@@ -59,23 +59,24 @@ int main() {
                 cin >> value;
 
                 queue->Insert(name, value);
-
                 break;
             }
             case 'D': 
                 queue->Delete();
                 break;
-
             case 'C': {
                 int index;
                 double value;
 
                 cout << "Enter index of element: ";
                 cin >> index;
+
                 if (queue->Exists(index)) {
                     cout << "Enter new key value: ";
                     cin >> value;
+
                     queue->ChangeKey(index, value);
+                    cout << endl;
                 } else {
                     cout << "Error: The index does not exist.\n" << endl;
                 }
