@@ -16,6 +16,7 @@
 ```shell
     $ g++ -std=c++11 -c *.cpp 
     $ g++ -o main *.o
+    $ ./main
 ```
 
  # Clean
