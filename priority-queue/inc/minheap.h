@@ -29,7 +29,7 @@ class PriorityQueue {
         Element* elements;
         int size;
 
-        void MinHeapify(int base = 1);
+        void MinHeapify(int base);
         void Swap(int a, int b);
         int ParentOf(int i) { return i / 2; }
         bool IsEmpty() { return size == 0; }

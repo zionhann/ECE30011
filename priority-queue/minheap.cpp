@@ -24,7 +24,7 @@ void PriorityQueue::Delete() {
     }
     Swap(1, size);
     elements[size--].Remove();
-    MinHeapify();
+    MinHeapify(1);
 }
 
 void PriorityQueue::ChangeKey(int base, double score) {
