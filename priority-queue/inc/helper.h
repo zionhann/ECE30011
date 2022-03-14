@@ -1,4 +1,4 @@
 namespace Helper {
     char ShowPrompt();
-    int Length(char* str);
+    int LengthOf(char* str);
 }

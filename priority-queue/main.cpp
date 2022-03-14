@@ -21,6 +21,8 @@
  * https://stackoverflow.com/questions/2361927/pointer-to-1th-index-of-array [Accessed Mar. 12, 2022].
  * https://stackoverflow.com/questions/1239938/accessing-an-array-out-of-bounds-gives-no-error-why [Accessed Mar. 12, 2022].
  * https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=tipsware&logNo=221054714926 [Accessed Mar. 12, 2022].
+ * https://makefiletutorial.com/ [Accessed Mar. 14, 2022].
+ * https://stackoverflow.com/questions/10363646/compiling-c11-with-g [Accessed Mar. 14, 2022].
  * 
  * 최호성, "이것이 C++이다", 한빛미디어, 2019, pp.75-83, pp.98-133.
  * 
@@ -30,7 +32,9 @@
 #include "./inc/minheap.h"
 #include "./inc/helper.h"
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::cin;
 using MinHeap::PriorityQueue;
 
 int main() {
@@ -46,7 +50,7 @@ int main() {
 
                 cout << "Enter name of element: ";
                 cin >> name;
-                if (Helper::Length(name) > 10) {
+                if (Helper::LengthOf(name) > 10) {
                      cout << "Error: The length for a name must be less than or equal to 10 characters.\n" << endl;
                      delete[] name;
                      continue;

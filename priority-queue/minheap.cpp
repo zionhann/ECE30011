@@ -1,7 +1,8 @@
 #include <iostream>
 #include "./inc/minheap.h"
 
-using std::cout, std::endl;
+using std::cout;
+using std::endl;
 using MinHeap::PriorityQueue;
 
 void PriorityQueue::Insert(const char* name, double score) {
@@ -47,7 +48,7 @@ void PriorityQueue::PrintAll() {
     for (int i = 1; i <= size; i++) {
         elements[i].Print();
     }
-    cout << endl;
+    cout << "\n" << endl;
 }
 
 void PriorityQueue::MinHeapify(int base) {
