@@ -17,7 +17,7 @@ class PriorityQueue {
                 Element(const char* name, double score): name(name), score(score) {}
 
                 void Add(const char* key) { name = key; }
-                void Remove() { score = -1; std::cout << "[" << name << ", " << score << "] " << "is deleted.\n" << std::endl; }
+                void Remove() { std::cout << "[" << name << ", " << score << "] " << "is deleted.\n" << std::endl; score = -1; }
                 void Update(double value) { score = value; }
                 bool IsLessThan(double value) { return score != -1 && score < value; }
                 bool IsLessThan(Element e) { return score < e.score; }
