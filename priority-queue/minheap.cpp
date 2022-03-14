@@ -1,75 +1,79 @@
 #include <iostream>
 #include "./inc/minheap.h"
 
-#define SWAP(a, b) { Element temp; temp = elements[a]; elements[a] = elements[b]; elements[b] = temp; }
-#define PARENT(a) a / 2
-
-using std::cout, std::endl;
+using std::cout;
+using std::endl;
 using MinHeap::PriorityQueue;
 
 void PriorityQueue::Insert(const char* name, double score) {
-    if (size == MAX_SIZE) {
-        cout << "Out of range" << endl;
+    if (IsFull()) {
+        cout << "Error: The queue is already full.\n" << endl;
+        return;
+    } else if (IsOutOfRange(score)) {
+        cout << "Error: The key value must be greater than or equal to 0.0 and less than or equal to 100.0\n" << endl;
         return;
     }
-    size += 1;
-
-    // Element* node = new Element(name, score);
-    elements[size].name = name;
-    // elements[size].score = score;
+    elements[++size].Add(name);
     ChangeKey(size, score);
-
     cout << "New element " << "[" << name << ", " << score << "] " << "is inserted.\n" << endl;
 }
 
-void PriorityQueue::Remove() {
-
-    if (size < 1)
-        cout << "underflow";
-
-    SWAP(1, size);
-    size -= 1;
-    MinHeapify();
-
+void PriorityQueue::Delete() {
+    if (IsEmpty()) {
+        cout << "Error: Elements are no longer in the queue.\n" << endl;
+        return;
+    }
+    Swap(1, size);
+    elements[size--].Remove();
+    MinHeapify(1);
 }
 
 void PriorityQueue::ChangeKey(int base, double score) {
-    if (elements[base].score != -1 && elements[base].score < score) {
-        cout << "error";
+    if (elements[base].IsLessThan(score)) {
+        cout << "Error: The new key value must be less than the current key value.\n" << endl;
+        return;
+    } else if (IsOutOfRange(score)) {
+        cout << "Error: The key value must be greater than or equal to 0.0 and less than or equal to 100.0\n" << endl;
         return;
     }
-    elements[base].score = score;
+    elements[base].Update(score);
 
-    while (base > 1 && elements[PARENT(base)].score > elements[base].score) {
-        SWAP(PARENT(base), base)
-        base = PARENT(base);
+    while (base > 1 && elements[base].IsLessThan(elements[ParentOf(base)])) {
+        Swap(ParentOf(base), base);
+        base = ParentOf(base);
     }
 }
 
 void PriorityQueue::PrintAll() {
     for (int i = 1; i <= size; i++) {
-        cout << "[" << elements[i].name << ", " << elements[i].score << "] ";
+        elements[i].Print();
     }
-    cout << endl;
+    cout << "\n" << endl;
 }
 
 void PriorityQueue::MinHeapify(int base) {
     int left = base * 2;
     int right = left + 1;
+    int min;
     Element curr = elements[base];
     Element lchild = elements[left];
     Element rchild = elements[right];
-    int min;
 
-    if (left <= size && lchild.score < curr.score)
+    if (left <= size && lchild.IsLessThan(curr))
         min = left;
     else min = base;
 
-    if (right <= size && rchild.score < elements[min].score)
+    if (right <= size && rchild.IsLessThan(elements[min]))
         min = right;
     
     if (min != base) {
-        SWAP(min, base);
+        Swap(min, base);
         MinHeapify(min);
     }
+}
+
+void PriorityQueue::Swap(int a, int b) {
+    Element temp = elements[a];
+    elements[a] = elements[b];
+    elements[b] = temp;
 }

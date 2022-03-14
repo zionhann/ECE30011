@@ -1,26 +1,25 @@
 #include <iostream>
 #include "./inc/helper.h"
 
-using std::cout, std::endl, std::cin;
-
 char Helper::ShowPrompt() {
     char menu;
 
-    cout << 
+    std::cout << 
+    "*********** MENU ****************\n"
     "I : Insert new element into queue.\n"
     "D : Delete element with smallest key from queue.\n"
     "C : Decrease key of element in queue.\n"
     "P : Print out all elements in queue.\n"
     "Q : Quit\n"
-    << endl;
+    << std::endl;
 
-    cout << "Choose menu: ";
-    cin >> menu;
+    std::cout << "Choose menu: ";
+    std::cin >> menu;
 
     return toupper(menu);
 }
 
-int Helper::Length(char* str) {
+int Helper::LengthOf(char* str) {
     int count = 0;
 
     while (*str != '\0') {
