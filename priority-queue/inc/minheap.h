@@ -6,15 +6,23 @@ class PriorityQueue {
         PriorityQueue(): elements(new Element[max_size]), size(0) { elements -= 1; }
 
         void Insert(const char* name, double score);
-        void Remove();
+        void Delete();
         void ChangeKey(int base, double score);
         void PrintAll();
+        bool Exists(int index) { return index > 0 && index <= size; }
     private:
         class Element {
             public:
                 Element(): score(-1) {}
                 Element(const char* name, double score): name(name), score(score) {}
 
+                void Add(const char* key) { name = key; }
+                void Remove() { score = -1; std::cout << "[" << name << ", " << score << "] " << "is deleted.\n" << std::endl; }
+                void Update(double value) { score = value; }
+                bool IsLessThan(double value) { return score != -1 && score < value; }
+                bool IsLessThan(Element e) { return score < e.score; }
+                void Print() { std::cout << "[" << name << ", " << score << "] "; }
+            private:
                 const char* name;
                 double score;
         };
@@ -24,5 +32,8 @@ class PriorityQueue {
         void MinHeapify(int base = 1);
         void Swap(int a, int b);
         int ParentOf(int i) { return i / 2; }
+        bool IsEmpty() { return size == 0; }
+        bool IsFull() { return size == max_size; }
+        bool IsOutOfRange(double value) { return value < 0.0 || value > 100.0; }
 };
 }
