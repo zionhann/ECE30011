@@ -28,7 +28,7 @@ int main() {
                 cout << "Enter name of element: ";
                 cin >> name;
                 if (Helper::Length(name) > 10) {
-                     cout << "The length of name are 10 at most.\n" << endl;
+                     cout << "Error: The length for a name must be less than or equal to 10 characters.\n" << endl;
                      delete[] name;
                      continue;
                 }
@@ -40,27 +40,33 @@ int main() {
                 break;
             }
             case 'D': 
-                queue->Remove();
+                queue->Delete();
                 break;
 
             case 'C': {
-                int index, value;
+                int index;
+                double value;
 
                 cout << "Enter index of element: ";
                 cin >> index;
-                cout << "Enter new key value: ";
-                cin >> value;
-                queue->ChangeKey(index, value);
-
+                if (queue->Exists(index)) {
+                    cout << "Enter new key value: ";
+                    cin >> value;
+                    queue->ChangeKey(index, value);
+                } else {
+                    cout << "Error: The index does not exist.\n" << endl;
+                }
                 break;
             }
             case 'P': 
                 queue->PrintAll();
                 break;
             case 'Q': 
-                cout << "Thank you, Bye!" << endl;
+                cout << "Thank you, Bye!\n" << endl;
                 delete[] queue;
                 return 0;
+            default:
+                cout << "Error: Invalid command" << " '" << input << "'.\n" << endl;
         }
     }
 }
