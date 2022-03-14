@@ -1,3 +1,6 @@
+#ifndef QUEUE_INC_MINHEAP_H_
+#define QUEUE_INC_MINHEAP_H_
+
 namespace MinHeap {
 const int max_size = 30;
 
@@ -37,3 +40,5 @@ class PriorityQueue {
         bool IsOutOfRange(double value) { return value < 0.0 || value > 100.0; }
 };
 }
+
+#endif
