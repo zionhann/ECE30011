@@ -4,7 +4,7 @@
  * See https://code.visualstudio.com/docs/cpp/config-mingw
 
  # Run
- * Open a terminal and enter the command below.
+ * Enter the command below in the console.
 
  ```shell
     $ make (or `mingw32-make`)
