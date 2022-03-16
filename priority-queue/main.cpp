@@ -23,6 +23,7 @@
  * https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=tipsware&logNo=221054714926 [Accessed Mar. 12, 2022].
  * https://makefiletutorial.com/ [Accessed Mar. 14, 2022].
  * https://stackoverflow.com/questions/10363646/compiling-c11-with-g [Accessed Mar. 14, 2022].
+ * https://kldp.org/node/23920 [Accessed Mar. 16, 2022].
  * 
  * 최호성, "이것이 C++이다", 한빛미디어, 2019, pp.75-83, pp.98-133.
  * 
@@ -87,7 +88,7 @@ int main() {
                 break;
             case 'Q': 
                 cout << "Thank you, Bye!\n" << endl;
-                delete[] queue;
+                delete queue;
                 return 0;
             default:
                 cout << "Error: Invalid command" << " '" << input << "'.\n" << endl;

@@ -7,6 +7,7 @@ const int max_size = 30;
 class PriorityQueue {
     public:
         PriorityQueue(): elements(new Element[max_size]), size(0) { elements -= 1; }
+        ~PriorityQueue() { elements += 1; delete[] elements; }
 
         void Insert(const char* name, double score);
         void Delete();
