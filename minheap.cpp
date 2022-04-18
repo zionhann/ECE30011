@@ -1,5 +1,6 @@
 #include <iostream>
-#include "./inc/minheap.h"
+
+#include "include/minheap.h"
 
 using std::cout;
 using std::endl;

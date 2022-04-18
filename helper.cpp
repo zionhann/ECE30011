@@ -1,5 +1,6 @@
 #include <iostream>
-#include "./inc/helper.h"
+
+#include "include/helper.h"
 
 char Helper::ShowPrompt() {
     char menu;

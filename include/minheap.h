@@ -1,5 +1,5 @@
-#ifndef QUEUE_INC_MINHEAP_H_
-#define QUEUE_INC_MINHEAP_H_
+#ifndef _MINHEAP_H_
+#define _MINHEAP_H_
 
 namespace MinHeap {
 const int max_size = 30;
