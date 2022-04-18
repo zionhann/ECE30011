@@ -1,5 +1,5 @@
-#ifndef QUEUE_INC_HELPER_H_
-#define QUEUE_INC_HELPER_H_
+#ifndef _HELPER_H_
+#define _HELPER_H_
 
 namespace Helper {
     char ShowPrompt();

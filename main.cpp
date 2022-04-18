@@ -1,37 +1,7 @@
-/**
- * 2022-1 01 ECE30011
- * Algorithms Analysis
- * Professor Whanki Yong
- * HW1
- * 21800779 Sion Han
- * 
- * @references
- * Whanki Yong. ECE30011. Class Lecture, Topic:"Chapter 6-Heapsort."
- * School of Computer Science and Electrical Engineering, 
- * Handong Global University, Pohang, Mar., 2022, pp.26-35.
- * 
- * [Online].
- * Available:
- * https://google.github.io/styleguide/cppguide.html [Accessed Mar. 12, 2022].
- * https://docs.microsoft.com/ko-kr/cpp/cpp/header-files-cpp?view=msvc-170 [Accessed Mar. 12, 2022].
- * https://docs.microsoft.com/ko-kr/cpp/cpp/namespaces-cpp?view=msvc-170 [Accessed Mar. 12, 2022].
- * https://gist.github.com/Lokno/b0f9ee0b802d8be78fb79e70a3db52eb [Accessed Mar. 12, 2022].
- * https://stackoverflow.com/questions/1452721/why-is-using-namespace-std-considered-bad-practice [Accessed Mar. 12, 2022].
- * https://stackoverflow.com/questions/66977448/c11-char-array-intializations-and-string-literals [Accessed Mar. 12, 2022].
- * https://stackoverflow.com/questions/2361927/pointer-to-1th-index-of-array [Accessed Mar. 12, 2022].
- * https://stackoverflow.com/questions/1239938/accessing-an-array-out-of-bounds-gives-no-error-why [Accessed Mar. 12, 2022].
- * https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=tipsware&logNo=221054714926 [Accessed Mar. 12, 2022].
- * https://makefiletutorial.com/ [Accessed Mar. 14, 2022].
- * https://stackoverflow.com/questions/10363646/compiling-c11-with-g [Accessed Mar. 14, 2022].
- * https://kldp.org/node/23920 [Accessed Mar. 16, 2022].
- * 
- * 최호성, "이것이 C++이다", 한빛미디어, 2019, pp.75-83, pp.98-133.
- * 
- */
-
 #include <iostream>
-#include "./inc/minheap.h"
-#include "./inc/helper.h"
+
+#include "include/minheap.h"
+#include "include/helper.h"
 
 using std::cout;
 using std::endl;
