@@ -1,8 +1,8 @@
 # Priority Queue in C++ 
 
  ## Discription
- * Priority queue using min-heap structure
-   - The total number of elements in the queue is limited to 30.
+ * Priority queue using min-heap structure.
+   - Maximum number of elements in the queue is 30.
    - The priority value for each element is always less than or equal to its child element(min-heap property).
 
  ## Build Process
@@ -33,7 +33,7 @@
    Choose menu:
    ```
  
- * Numbers are not allowed as an option
+ * Numbers are not allowed as an option.
    
    ```
    Choose menu: 2
@@ -41,7 +41,7 @@
    ```
 
  ### Insertion
- * A key value must be numeric.
+ * A key value must be numeric and it ranges from 0 to 100.
 
    ```
    Enter name of element: foo
@@ -49,8 +49,20 @@
    New element [foo, 11.8] is inserted.
    ```
 
+ * Exception occurs when the priority value is out of range
+
+   ```
+   Error: The key value must be greater than or equal to 0.0 and less than or equal to 100.0
+   ```
+
+   or when exceeding maximum capacity of the queue(30). 
+
+   ```
+   Error: The queue is already full.
+   ```
+
  ### Deletion
- * It's pretty simple.
+ * Delete an element which has the smallest priority value from the queue(root).
 
    ```
    [foo, 11.8] is deleted.
